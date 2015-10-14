@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=/usr/bin/foo
+Exec=/usr/bin/foo %i %o
+MimeType=text/plain;
