@@ -1,0 +1,12 @@
+{
+  "desktop":{
+    "folder":"applications",
+    "name":"Desktop Entry",
+    "ext":"desktop"
+  },
+  "thumbnailer":{
+    "folder":"thumbnailers",
+    "name":"Thumbnailer Entry",
+    "ext":"thumbnailer"
+  }
+}

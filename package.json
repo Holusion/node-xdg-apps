@@ -1,0 +1,26 @@
+{
+  "name": "xdg-apps",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "repository": "https://github.com/Holusion/node-xdg-apps",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "xdg",
+    "Mime",
+    "freedesktop",
+    "app",
+    "default",
+    "Desktop",
+    "Thumbnailer",
+    "app finder"
+  ],
+  "dependencies": {
+    "xdg-basedir": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}

@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=/usr/bin/test
+Exec=/usr/bin/test %i %o
+MimeType=application/x-test;
