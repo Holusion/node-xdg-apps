@@ -1,6 +1,6 @@
 # node-xdg-apps
 
-[![Build Status](https://travis-ci.org/Holusion/node-xdg-apps.svg?branch=master)](https://travis-ci.org/Holusion/node-xdg-apps)
+[![Build Status](https://travis-ci.org/Holusion/node-xdg-apps.svg?branch=master)](https://travis-ci.org/Holusion/node-xdg-apps) [![Test Coverage](https://codeclimate.com/github/Holusion/node-xdg-apps/badges/coverage.svg)](https://codeclimate.com/github/Holusion/node-xdg-apps/coverage)
 
 Find the best app to open a file / thumbnailize it according to XDG Specifications
 
