@@ -1,5 +1,7 @@
 # node-xdg-apps
 
+[![Build Status](https://travis-ci.org/Holusion/node-xdg-apps.svg?branch=master)](https://travis-ci.org/Holusion/node-xdg-apps)
+
 Find the best app to open a file / thumbnailize it according to XDG Specifications
 
     npm install xdg-apps
