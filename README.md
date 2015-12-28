@@ -8,6 +8,7 @@ Find the best app to open a file / thumbnailize it according to XDG Specificatio
 
 ## Usage
 
+### Find the right app to open a file
     var Finder = require("xdg-apps");
     var finder = new Finder();
     finder.find("/path/to/my/file",function(err,launcher){
@@ -21,6 +22,17 @@ Find the best app to open a file / thumbnailize it according to XDG Specificatio
       });
 
 If you want to really open the file afterward, take a look at [desktop-launch](https://github.com/Holusion/node-desktop-launch).
+
+### Find a list of system apps
+
+    var Finder = require("xdg-apps");
+    var finder = new Finder();    
+    finder.apps.list().then(function(apps){
+      //An array of parsed desktop entries
+    }).catch(function(e){
+        //Handle errors
+    })
+
 
 ## Options
 
