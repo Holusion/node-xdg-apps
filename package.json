@@ -1,6 +1,6 @@
 {
   "name": "xdg-apps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "repository": "https://github.com/Holusion/node-xdg-apps",
   "scripts": {
@@ -17,7 +17,8 @@
     "app finder"
   ],
   "dependencies": {
-    "xdg-basedir": "^2.0.0"
+    "xdg-basedir": "^2.0.0",
+    "xdg-parse": "0.0.2"
   },
   "devDependencies": {
     "chai": "^3.2.0",
