@@ -1,3 +1,4 @@
+'use strict';
 //TEST FRAMEWORKS
 var chai = require('chai');
 var path = require("path");
