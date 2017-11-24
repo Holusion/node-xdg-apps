@@ -36,8 +36,9 @@ describe("EntryList : applications",function () {
     it("mime type",function(done){
       var list = new EntryList();
       list.find("image/x-foo").then(function(found){
-        expect(typeof found).to.equal("string");
-        expect(found).to.equal("fooview %f");
+        expect(typeof found).to.equal("object");
+        expect(typeof found['Desktop Entry']).to.equal("object");
+        expect(found['Desktop Entry']['Exec']).to.equal("fooview %f");
         done();
       }).catch(function(e){
         done(e);

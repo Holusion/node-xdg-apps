@@ -5,12 +5,9 @@ describe("Finder",function(){
       this.finder = new Finder("thumbnailer");
 
     });
-    it("simple",function(done){
-      this.finder.find("/path/to/file.txt").then(function(thumbnailer){
+    it("simple",function(){
+      return this.finder.find("/path/to/file.txt").then(function(thumbnailer){
         expect(thumbnailer).to.equal("/usr/bin/foo %i %o");
-        done();
-      }).catch(function(e){
-        done(e);
       });
     });
   });
