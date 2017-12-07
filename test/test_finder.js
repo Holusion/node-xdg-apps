@@ -35,5 +35,12 @@ describe("Finder",function(){
         expect(desktop['Exec']).to.equals("fooview %f");
       });
     });
+    it("no entry found", () => {
+      this.finder.findEntry("path/to/file").then(e => {
+        throw e;
+      }).catch(e => {
+        expect(e).to.equals(new Error("ENOTFOUND"))
+      });
+    });
   });
 })
