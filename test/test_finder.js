@@ -29,18 +29,28 @@ describe("Finder",function(){
     beforeEach(() => {
       this.finder = new Finder("desktop");
     });
-    it("simple", () => {
+    it("simple", (done) => {
       return this.finder.findEntry("/path/to/file.txt").then(desktop => {
         expect(typeof desktop).to.equals("object");
         expect(desktop['Exec']).to.equals("fooview %f");
+        done();
+      }).catch(e => {
+        done(e);
+      });
+    });
+    it("extended simple with special format", (done) => {
+      this.finder.findEntry("/path/to/file.foo").then(desktop => {
+        expect(typeof desktop).to.equals("object");
+        expect(desktop['Exec']).to.equals("fooview %f");
+        done();
+      }).catch(e => {
+        done(e);
       });
     });
     it("no entry found", () => {
       this.finder.findEntry("path/to/file").then(e => {
-        throw e;
-      }).catch(e => {
-        expect(e).to.equals(new Error("ENOTFOUND"))
-      });
+        expect(e).to.equals(null);
+      })
     });
   });
 })
