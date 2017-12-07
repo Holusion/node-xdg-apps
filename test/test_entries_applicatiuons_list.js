@@ -39,6 +39,7 @@ describe("EntryList : applications",function () {
         expect(typeof found).to.equal("object");
         expect(typeof found['Desktop Entry']).to.equal("object");
         expect(found['Desktop Entry']['Exec']).to.equal("fooview %f");
+        expect(found['Desktop Entry']['ID']).to.equal("test.desktop");
         done();
       }).catch(function(e){
         done(e);

@@ -25,4 +25,15 @@ describe("Finder",function(){
       });
     });
   });
+  describe(".findEntry() desktop", () => {
+    beforeEach(() => {
+      this.finder = new Finder("desktop");
+    });
+    it("simple", () => {
+      return this.finder.findEntry("/path/to/file.txt").then(desktop => {
+        expect(typeof desktop).to.equals("object");
+        expect(desktop['Exec']).to.equals("fooview %f");
+      });
+    });
+  });
 })
