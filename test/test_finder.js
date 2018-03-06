@@ -5,12 +5,9 @@ describe("Finder",function(){
       this.finder = new Finder("thumbnailer");
 
     });
-    it("simple",function(done){
-      this.finder.find("/path/to/file.txt").then(function(thumbnailer){
+    it("simple",function(){
+      return this.finder.find("/path/to/file.txt").then(function(thumbnailer){
         expect(thumbnailer).to.equal("/usr/bin/foo %i %o");
-        done();
-      }).catch(function(e){
-        done(e);
       });
     });
   });
@@ -26,6 +23,34 @@ describe("Finder",function(){
       }).catch(function(e){
         done(e);
       });
+    });
+  });
+  describe(".findEntry() desktop", () => {
+    beforeEach(() => {
+      this.finder = new Finder("desktop");
+    });
+    it("simple", (done) => {
+      return this.finder.findEntry("/path/to/file.txt").then(desktop => {
+        expect(typeof desktop).to.equals("object");
+        expect(desktop['Exec']).to.equals("fooview %f");
+        done();
+      }).catch(e => {
+        done(e);
+      });
+    });
+    it("extended simple with special format", (done) => {
+      this.finder.findEntry("/path/to/file.foo").then(desktop => {
+        expect(typeof desktop).to.equals("object");
+        expect(desktop['Exec']).to.equals("fooview %f");
+        done();
+      }).catch(e => {
+        done(e);
+      });
+    });
+    it("no entry found", () => {
+      this.finder.findEntry("path/to/file").then(e => {
+        expect(e).to.equals(null);
+      })
     });
   });
 })

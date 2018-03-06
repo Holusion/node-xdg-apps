@@ -15,6 +15,8 @@ describe("EntryList : applications",function () {
       expect(       entries['test.desktop']['Desktop Entry']["Exec"]).to.equal("fooview %f");
       expect(typeof entries['vlc.desktop']).to.equal("object");
       expect(       entries['vlc.desktop']['Desktop Entry']["Exec"]).to.equal("/usr/bin/vlc --started-from-file %U");
+      expect(typeof entries['stingray.desktop']).to.equal("object");
+      expect(       entries['stingray.desktop']["Desktop Entry"]["DBusActivatable"]).to.equal("true");
       done();
     }).catch(function(e){
       console.log("error :",e);
@@ -34,8 +36,10 @@ describe("EntryList : applications",function () {
     it("mime type",function(done){
       var list = new EntryList();
       list.find("image/x-foo").then(function(found){
-        expect(typeof found).to.equal("string");
-        expect(found).to.equal("fooview %f");
+        expect(typeof found).to.equal("object");
+        expect(typeof found['Desktop Entry']).to.equal("object");
+        expect(found['Desktop Entry']['Exec']).to.equal("fooview %f");
+        expect(found['Desktop Entry']['ID']).to.equal("test.desktop");
         done();
       }).catch(function(e){
         done(e);

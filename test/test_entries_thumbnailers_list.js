@@ -32,8 +32,9 @@ describe("EntryList : thumbnailers",function () {
     it("mime type",function(done){
       var list = new EntryList("thumbnailer");
       list.find("application/x-test").then(function(found){
-        expect(typeof found).to.equal("string");
-        expect(found).to.equal("/usr/bin/test %i %o");
+        expect(typeof found).to.equal("object");
+        expect(typeof found['Thumbnailer Entry']).to.equal("object");
+        expect(found['Thumbnailer Entry']['Exec']).to.equal("/usr/bin/test %i %o");
         done();
       }).catch(function(e){
         done(e);
