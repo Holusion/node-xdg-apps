@@ -1,0 +1,12 @@
+[Desktop Entry]
+#example file from http://standards.freedesktop.org/desktop-entry-spec/latest/apa.html
+Version=1.0
+Type=Application
+Name=Bar Viewer
+Name[fr_FR]=Lecteur Bar
+Comment=The best viewer for Foo objects available!
+TryExec=bar
+Exec=bar %f
+Icon=bar
+MimeType=image/x-foo;text/plain;
+DBusActivatable=true

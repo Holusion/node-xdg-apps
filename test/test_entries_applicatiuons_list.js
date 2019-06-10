@@ -10,13 +10,13 @@ describe("EntryList : applications",function () {
     var list = new EntryList();
     list.entries.then(function(entries){
       expect(typeof entries).to.equal("object");
-      expect(typeof entries['test.desktop']).to.equal("object");
-      expect(typeof entries['test.desktop']['Desktop Entry']).to.equal("object");
-      expect(       entries['test.desktop']['Desktop Entry']["Exec"]).to.equal("fooview %f");
+      expect(typeof entries['foo.desktop']).to.equal("object");
+      expect(typeof entries['foo.desktop']['Desktop Entry']).to.equal("object");
+      expect(       entries['foo.desktop']['Desktop Entry']["Exec"]).to.equal("foo %f");
       expect(typeof entries['vlc.desktop']).to.equal("object");
       expect(       entries['vlc.desktop']['Desktop Entry']["Exec"]).to.equal("/usr/bin/vlc --started-from-file %U");
-      expect(typeof entries['stingray.desktop']).to.equal("object");
-      expect(       entries['stingray.desktop']["Desktop Entry"]["DBusActivatable"]).to.equal("true");
+      expect(typeof entries['bar.desktop']).to.equal("object");
+      expect(       entries['bar.desktop']["Desktop Entry"]["DBusActivatable"]).to.equal("true");
       done();
     }).catch(function(e){
       console.log("error :",e);
@@ -25,8 +25,8 @@ describe("EntryList : applications",function () {
   });
   it("getExecKey",function(done){
     var list = new EntryList();
-    list.getExecKey("test.desktop").then(function(found){
-      expect(found).to.equal("fooview %f");
+    list.getExecKey("foo.desktop").then(function(found){
+      expect(found).to.equal("foo %f");
       done();
     }).catch(function(e){
       done(e);
@@ -38,8 +38,8 @@ describe("EntryList : applications",function () {
       list.find("image/x-foo").then(function(found){
         expect(typeof found).to.equal("object");
         expect(typeof found['Desktop Entry']).to.equal("object");
-        expect(found['Desktop Entry']['Exec']).to.equal("fooview %f");
-        expect(found['Desktop Entry']['ID']).to.equal("test.desktop");
+        expect(found['Desktop Entry']['Exec']).to.equal("bar %f");
+        expect(found['Desktop Entry']['ID']).to.equal("bar.desktop");
         done();
       }).catch(function(e){
         done(e);

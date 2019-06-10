@@ -18,7 +18,7 @@ describe("Finder",function(){
     });
     it("simple",function(done){
       this.finder.find("/path/to/file.txt").then(function(thumbnailer){
-        expect(thumbnailer).to.equal("fooview %f");
+        expect(thumbnailer).to.equal("foo %f");
         done();
       }).catch(function(e){
         done(e);
@@ -32,7 +32,7 @@ describe("Finder",function(){
     it("simple", (done) => {
       return this.finder.findEntry("/path/to/file.txt").then(desktop => {
         expect(typeof desktop).to.equals("object");
-        expect(desktop['Exec']).to.equals("fooview %f");
+        expect(desktop['Exec']).to.equals("foo %f");
         done();
       }).catch(e => {
         done(e);
@@ -41,7 +41,7 @@ describe("Finder",function(){
     it("extended simple with special format", (done) => {
       this.finder.findEntry("/path/to/file.foo").then(desktop => {
         expect(typeof desktop).to.equals("object");
-        expect(desktop['Exec']).to.equals("fooview %f");
+        expect(desktop['Exec']).to.equals("bar %f");
         done();
       }).catch(e => {
         done(e);

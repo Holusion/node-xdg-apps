@@ -1,7 +1,8 @@
 [Added Associations]
 application/bar=foo;
-text/plain=test.desktop
+text/plain=foo.desktop
+x-scheme-handler/file=foo.desktop
 
 [Default Applications]
 application/baz=foobar.desktop;
-text/plain=test.desktop
+text/plain=foo.desktop
