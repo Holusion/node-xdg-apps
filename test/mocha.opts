@@ -4,3 +4,4 @@
 --recursive
 --colors
 -R spec
+--check-leaks
