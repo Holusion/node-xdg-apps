@@ -26,29 +26,37 @@ describe("Finder",function(){
     });
   });
   describe(".findEntry() desktop", () => {
+    let finder;
     beforeEach(() => {
-      this.finder = new Finder("desktop");
+      finder = new Finder("desktop");
     });
-    it("simple", (done) => {
-      return this.finder.findEntry("/path/to/file.txt").then(desktop => {
-        expect(typeof desktop).to.equals("object");
-        expect(desktop['Exec']).to.equals("foo %f");
-        done();
-      }).catch(e => {
-        done(e);
-      });
+    it("simple", () => {
+      return finder.findEntry("/path/to/file.txt").then(desktop => {
+        expect(typeof desktop).to.equal("object");
+        expect(desktop['Exec']).to.equal("foo %f");
+      })
     });
-    it("extended simple with special format", (done) => {
-      this.finder.findEntry("/path/to/file.foo").then(desktop => {
-        expect(typeof desktop).to.equals("object");
-        expect(desktop['Exec']).to.equals("bar %f");
-        done();
-      }).catch(e => {
-        done(e);
-      });
+    it("extended simple with special format", () => {
+      return finder.findEntry("/path/to/file.foo").then(desktop => {
+        expect(typeof desktop).to.equal("object");
+        expect(desktop['Exec']).to.equal("bar %U");
+      })
     });
+    it("from URI scheme",function(){
+      return finder.findEntry("bar://hostname/path").then(desktop => {
+        expect(typeof desktop).to.equal("object");
+        expect(desktop['Exec']).to.equals("bar %U");
+      })
+
+    })
+    it("from URI scheme (no hostname)",function(){
+      return finder.findEntry("bar:///path/to/file").then(desktop => {
+        expect(typeof desktop).to.equal("object");
+        expect(desktop['Exec']).to.equal("bar %U");
+      })
+    })
     it("no entry found", () => {
-      this.finder.findEntry("path/to/file").then(e => {
+      return finder.findEntry("path/to/file").then(e => {
         expect(e).to.equals(null);
       })
     });

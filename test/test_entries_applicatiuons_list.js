@@ -38,7 +38,7 @@ describe("EntryList : applications",function () {
       list.find("image/x-foo").then(function(found){
         expect(typeof found).to.equal("object");
         expect(typeof found['Desktop Entry']).to.equal("object");
-        expect(found['Desktop Entry']['Exec']).to.equal("bar %f");
+        expect(found['Desktop Entry']['Exec']).to.equal("bar %U");
         expect(found['Desktop Entry']['ID']).to.equal("bar.desktop");
         done();
       }).catch(function(e){
