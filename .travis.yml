@@ -4,10 +4,10 @@ install:
   - npm install -g istanbul codeclimate-test-reporter
 script: istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec
 node_js:
-  - "4.2"
-  - "4.1"
-  - "4.0"
-  - "0.12"
+  - "4"
+  - "6"
+  - "8"
+  - "9"
 addons:
   code_climate:
     repo_token: 083f4a35f5b27bfbc25d5f0062cf0f417216f843d2f4b636f5df4af4ecbc4b76

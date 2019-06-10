@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Stingray
+TryExec=stingray
+Exec=stingray %f
+DBusActivatable=true
+Name[fr_FR]=stingray.desktop
