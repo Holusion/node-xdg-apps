@@ -38,8 +38,8 @@ describe("EntryList : applications",function () {
       list.find("image/x-foo").then(function(found){
         expect(typeof found).to.equal("object");
         expect(typeof found['Desktop Entry']).to.equal("object");
-        expect(found['Desktop Entry']['Exec']).to.equal("bar %U");
-        expect(found['Desktop Entry']['ID']).to.equal("bar.desktop");
+        expect(found['Desktop Entry']).to.have.property('Exec',"bar %U");
+        expect(found['Desktop Entry']).to.have.property("ID", "bar.desktop");
         done();
       }).catch(function(e){
         done(e);

@@ -33,31 +33,35 @@ describe("Finder",function(){
     it("simple", () => {
       return finder.findEntry("/path/to/file.txt").then(desktop => {
         expect(typeof desktop).to.equal("object");
-        expect(desktop['Exec']).to.equal("foo %f");
+        expect(desktop).to.have.property("Exec", "foo %f");
+        expect(desktop).to.have.property("ID", "foo.desktop");
       })
     });
     it("extended simple with special format", () => {
       return finder.findEntry("/path/to/file.foo").then(desktop => {
         expect(typeof desktop).to.equal("object");
-        expect(desktop['Exec']).to.equal("bar %U");
+        expect(desktop).to.have.property("Exec", "bar %U");
+        expect(desktop).to.have.property("ID", "bar.desktop");
       })
     });
     it("from URI scheme",function(){
       return finder.findEntry("bar://hostname/path").then(desktop => {
         expect(typeof desktop).to.equal("object");
-        expect(desktop['Exec']).to.equals("bar %U");
+        expect(desktop).to.have.property("Exec", "bar %U");
+        expect(desktop).to.have.property("ID", "bar.desktop");
       })
 
     })
     it("from URI scheme (no hostname)",function(){
       return finder.findEntry("bar:///path/to/file").then(desktop => {
         expect(typeof desktop).to.equal("object");
-        expect(desktop['Exec']).to.equal("bar %U");
+        expect(desktop).to.have.property("Exec", "bar %U");
+        expect(desktop).to.have.property("ID", "bar.desktop");
       })
     })
     it("no entry found", () => {
       return finder.findEntry("path/to/file").then(e => {
-        expect(e).to.equals(null);
+        expect(e).to.equal(null);
       })
     });
   });
