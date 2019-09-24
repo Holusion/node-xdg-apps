@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "xdg-basedir": "^2.0.0",
-    "xdg-parse": "0.0.2"
+    "xdg-parse": "0.0.3"
   },
   "devDependencies": {
     "chai": "^3.2.0",
