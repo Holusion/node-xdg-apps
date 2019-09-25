@@ -1,8 +1,11 @@
-var Finder = require("../lib");
+'use strict';
+const Finder = require("../lib");
+const path = require("path");
 describe("Finder",function(){
   describe(".find() thumbnailer",function(){
     beforeEach(function(){
       this.finder = new Finder("thumbnailer");
+      this.finder.entries.dirs=[path.join(__dirname,"fixtures/thumbnailers")];
 
     });
     it("simple",function(){
@@ -14,21 +17,19 @@ describe("Finder",function(){
   describe(".find() desktop",function(){
     beforeEach(function(){
       this.finder = new Finder("desktop");
-
+      this.finder.entries.dirs=[path.join(__dirname,"fixtures/applications")];
     });
-    it("simple",function(done){
-      this.finder.find("/path/to/file.txt").then(function(thumbnailer){
+    it("simple",function(){
+      return this.finder.find("/path/to/file.txt").then(function(thumbnailer){
         expect(thumbnailer).to.equal("foo %f");
-        done();
-      }).catch(function(e){
-        done(e);
-      });
+      })
     });
   });
   describe(".findEntry() desktop", () => {
     let finder;
     beforeEach(() => {
       finder = new Finder("desktop");
+      finder.entries.dirs=[path.join(__dirname,"fixtures/applications")];
     });
     it("simple", () => {
       return finder.findEntry("/path/to/file.txt").then(desktop => {

@@ -1,14 +1,12 @@
-var path = require("path");
-describe("MimeApps",function () {
-  var MimeApps;
+'use strict';
+const path = require("path");
+const {find, list} = require("../lib/MimeApps");
 
-  before(function(){
-    MimeApps = require("../lib/MimeApps");
-  });
+const dataFiles =  [path.join(__dirname,"fixtures/applications")];
+describe("MimeApps",function () {
 
   it("parses mime associations",function(done){
-    var list = new MimeApps();
-    list.apps.then(function(apps){
+    list(dataFiles).then(function(apps){
       expect(typeof apps).to.equal("object");
       expect(apps).to.not.have.property("application/bar");
       expect(apps).to.have.property("application/baz");
@@ -20,8 +18,7 @@ describe("MimeApps",function () {
     });
   });
   it("find mime associations",function(done){
-    var list = new MimeApps();
-    list.find("application/baz").then(function(apps){
+    find("application/baz", dataFiles).then(function(apps){
       expect(typeof apps).to.equal("object");
       expect(apps[0]).to.equal("foobar.desktop");
       done();
