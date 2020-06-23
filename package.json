@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "engine":{
+    "node":">=10"
+  },
   "keywords": [
     "xdg",
     "Mime",

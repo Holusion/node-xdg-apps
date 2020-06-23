@@ -8,7 +8,7 @@ describe("EntryList : thumbnailers",function () {
 
   it("parses thumbnailer entries (localized or not)",function(done){
     var list = new EntryList("thumbnailer");
-    list.entries.then(function(entries){
+    list.getEntries().then(function(entries){
       expect(typeof entries).to.equal("object");
       expect(typeof entries['test.thumbnailer']).to.equal("object");
       expect(typeof entries['test.thumbnailer']['Thumbnailer Entry']).to.equal("object");

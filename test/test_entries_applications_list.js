@@ -5,7 +5,7 @@ describe("EntryList : applications",function () {
 
   it("parses desktop entries (localized or not)",function(done){
     var list = new EntryList();
-    list.entries.then(function(entries){
+    list.getEntries().then(function(entries){
       expect(typeof entries).to.equal("object");
       expect(typeof entries['foo.desktop']).to.equal("object");
       expect(typeof entries['foo.desktop']['Desktop Entry']).to.equal("object");
